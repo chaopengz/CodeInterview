@@ -4,7 +4,7 @@
 int main()
 {
     Solution so;
-    int a[] = {1, 2, 3, 4, 5};
-    vector<int> v(a, a + 5);
+    int a[] = {2, 1};
+    vector<int> v(a, a + 2);
     cout << so.minNumberInRotateArray(v);
 }

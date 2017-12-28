@@ -5,34 +5,26 @@
 
 class Solution {
 public:
-    int minNumberInRotateArray(vector<int> rotateArray)
+    int minNumberInRotateArray(vector<int> array)
     {
-        if (!rotateArray.size())
-            return 0;
-        if (rotateArray.size() == 1)
-            return rotateArray[0];
 
-        vector<int> v;
-        v.push_back(INT32_MAX);
-        for (auto item : rotateArray)
-            v.push_back(item);
-        v.push_back(INT32_MAX);
-
-
-        int low = 1, high = rotateArray.size();
-
-        while (low <= high)
+        int low = 0;
+        int high = array.size() - 1;
+        while (low < high)
         {
-            int mid = (low + high) / 2;
-            if (v[mid] < v[mid - 1] && v[mid] < v[mid + 1])
-                return v[mid];
-            else if (v[mid] >= v[1]&&v[mid])
+            int mid = low + (high - low) / 2;
+            if (array[mid] > array[high])
             {
                 low = mid + 1;
+            } else if (array[mid] == array[high])
+            {
+                high = high - 1;
+
             } else
             {
-                high = mid - 1;
+                high = mid; 
             }
         }
+        return array[low];
     }
 };
