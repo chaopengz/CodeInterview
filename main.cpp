@@ -1,11 +1,10 @@
 #include <iostream>
-#include "005.cpp"
+#include "006.cpp"
 
 int main()
 {
     Solution so;
-    so.push(1);
-    so.push(2);
-    cout << so.pop();
-    cout << so.pop();
+    int a[] = {1, 2, 3, 4, 5};
+    vector<int> v(a, a + 5);
+    cout << so.minNumberInRotateArray(v);
 }
