@@ -12,19 +12,27 @@ public:
         if (rotateArray.size() == 1)
             return rotateArray[0];
 
-        int low = 0, high = rotateArray.size() - 1;
+        vector<int> v;
+        v.push_back(INT32_MAX);
+        for (auto item : rotateArray)
+            v.push_back(item);
+        v.push_back(INT32_MAX);
 
-        while (low < high)
+
+        int low = 1, high = rotateArray.size();
+
+        while (low <= high)
         {
             int mid = (low + high) / 2;
-            if (rotateArray[mid] < rotateArray[mid - 1] && rotateArray[mid] < rotateArray[mid + 1])
-                return rotateArray[mid];
-            else if (rotateArray[mid] > rotateArray[high])
-
+            if (v[mid] < v[mid - 1] && v[mid] < v[mid + 1])
+                return v[mid];
+            else if (v[mid] >= v[1]&&v[mid])
+            {
+                low = mid + 1;
+            } else
+            {
+                high = mid - 1;
+            }
         }
-        if (low + 1 == rotateArray.size() - 1)
-            return rotateArray[0];
-        else
-            return rotateArray[low + 1];
     }
 };
