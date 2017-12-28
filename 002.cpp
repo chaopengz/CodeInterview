@@ -16,7 +16,8 @@ public:
 
         int newLength = length + cnt * 2;
         int j = newLength - 1;
-//        char *newstr = new char(newLength + 1);
+        // 不能重新new,new了地址不一样了
+        // char *newstr = new char(newLength + 1);
 
         for (int i = length - 1; i >= 0; --i)
         {
