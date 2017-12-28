@@ -3,10 +3,11 @@
 
 int main()
 {
-    char *str = "we are happy";
+    char str[100] = "we are happy";
 
     Solution solution;
     printf("%s\n",str);
     solution.replaceSpace(str, strlen(str));
-    printf("%s",str);
+
+    printf("%s\n",str);
 }

@@ -7,34 +7,28 @@ class Solution {
 public:
     void replaceSpace(char *str, int length)
     {
-        string s;
         int cnt = 0;
-        char c;
         for (int i = 0; i < length; ++i)
         {
-            c = *(str + i);
-            s += c;
-            if (c == ' ')
+            if (*(str + i) == ' ')
                 cnt++;
         }
+
         int newLength = length + cnt * 2;
         int j = newLength - 1;
-
-
-        str = new char(newLength + 1);
+//        char *newstr = new char(newLength + 1);
 
         for (int i = length - 1; i >= 0; --i)
         {
-            if (s[i] == ' ')
+            if (str[i] == ' ')
             {
                 *(str + j--) = '0';
                 *(str + j--) = '2';
                 *(str + j--) = '%';
             } else
             {
-                *(str + j--) = s[i];
+                *(str + j--) = str[i];
             }
         }
-        printf("%s\n", str);
     }
 };
