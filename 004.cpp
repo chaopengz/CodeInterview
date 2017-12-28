@@ -18,6 +18,8 @@ public:
     TreeNode *reConstructBinaryTree(vector<int> pre, vector<int> vin)
     {
         TreeNode *root;
+        if (!pre.size())
+            return nullptr;
         int rootVal = pre[0];
         vector<int> leftpre;
         vector<int> leftmid;

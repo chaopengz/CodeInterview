@@ -8,6 +8,7 @@ int main()
     int b[] = {4, 7, 2, 1, 5, 3, 8, 6};
     vector<int> pre(a, a + 8);
     vector<int> mid(b, b + 8);
-    so.reConstructBinaryTree(pre, mid);
-
+    TreeNode *root;
+    root = so.reConstructBinaryTree(pre, mid);
+    cout<<"h";
 }
