@@ -1,3 +1,0 @@
-F:/CodeInterview/cmake-build-debug/CMakeFiles/CodeInterview.dir
-F:/CodeInterview/cmake-build-debug/CMakeFiles/edit_cache.dir
-F:/CodeInterview/cmake-build-debug/CMakeFiles/rebuild_cache.dir
