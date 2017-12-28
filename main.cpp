@@ -1,9 +1,12 @@
 #include <iostream>
-#include "001.cpp"
+#include "002.cpp"
 
 int main()
 {
-    vector<vector<int>> v;
+    char *str = "we are happy";
+
     Solution solution;
-    solution.Find(1, v);
+    printf("%s\n",str);
+    solution.replaceSpace(str, strlen(str));
+    printf("%s",str);
 }
