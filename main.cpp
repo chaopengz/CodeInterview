@@ -1,14 +1,11 @@
 #include <iostream>
-#include "004.cpp"
+#include "005.cpp"
 
 int main()
 {
     Solution so;
-    int a[] = {1, 2, 4, 7, 3, 5, 6, 8};
-    int b[] = {4, 7, 2, 1, 5, 3, 8, 6};
-    vector<int> pre(a, a + 8);
-    vector<int> mid(b, b + 8);
-    TreeNode *root;
-    root = so.reConstructBinaryTree(pre, mid);
-    cout<<"h";
+    so.push(1);
+    so.push(2);
+    cout << so.pop();
+    cout << so.pop();
 }
