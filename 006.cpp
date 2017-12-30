@@ -22,7 +22,7 @@ public:
 
             } else
             {
-                high = mid; 
+                high = mid;
             }
         }
         return array[low];
