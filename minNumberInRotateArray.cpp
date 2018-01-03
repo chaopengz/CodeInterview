@@ -5,26 +5,40 @@
 
 class Solution {
 public:
-    int minNumberInRotateArray(vector<int> array)
+    int minNumberInRotateArray(vector<int> rotateArray)
     {
+        if (!rotateArray.size())
+            return 0;
+        if (rotateArray.size() == 1)
+            return rotateArray[0];
+        int len = rotateArray.size();
 
-        int low = 0;
-        int high = array.size() - 1;
-        while (low < high)
+        if (rotateArray[0] < rotateArray[len - 1])//没有旋转
+            return rotateArray[0];
+
+        int low = 0, high = len - 1;
+        int mid;
+        while (low <= high)
         {
-            int mid = low + (high - low) / 2;
-            if (array[mid] > array[high])
-            {
+            mid = (low + high) / 2;
+            if (isFind(rotateArray, mid))
+                return rotateArray[mid];
+            else if (rotateArray[mid] >= rotateArray[0])
                 low = mid + 1;
-            } else if (array[mid] == array[high])
-            {
-                high = high - 1;
-
-            } else
-            {
-                high = mid;
-            }
+            else
+                high = mid - 1;
         }
-        return array[low];
+
+        return 0;
+    }
+
+    bool isFind(vector<int> nums, int index)
+    {
+        if (index == nums.size() - 1)
+            return nums[index] < nums[index - 1];
+        else if (index == 0)
+            return nums[index] < nums[nums.size() - 1];
+        else
+            return nums[index] < nums[index + 1] && nums[index] < nums[index - 1];
     }
 };
