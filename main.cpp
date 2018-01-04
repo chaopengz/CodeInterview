@@ -1,10 +1,10 @@
 #include <iostream>
-#include "jumpFloorII.cpp"
+#include "rectCover.cpp"
 
 
 int main()
 {
     Solution solution;
-    cout << solution.jumpFloorII(3);
+    cout << solution.rectCover(3);
 }
 
