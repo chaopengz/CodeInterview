@@ -10,4 +10,10 @@ public:
     {
 
     }
+
+    void printOneLoop(vector<vector<int>> matrix, int i, int j, int m, int n)
+    {
+
+    }
+    vector<int> ans;
 };
