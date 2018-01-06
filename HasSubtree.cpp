@@ -12,18 +12,21 @@ public:
             return false;
         else
         {
-            return isSame(pRoot1, pRoot2) || HasSubtree(pRoot1->left, pRoot2) || HasSubtree(pRoot1->right, pRoot2);
+            return isPreSame(pRoot1, pRoot2) || HasSubtree(pRoot1->left, pRoot2) || HasSubtree(pRoot1->right, pRoot2);
         }
     }
 
-    bool isSame(TreeNode *root1, TreeNode *root2)
+    bool isPreSame(TreeNode *root1, TreeNode *root2)
     {
-        if ((!root1) && (!root2))
+        if (!root2)
             return true;
-        if (!(root1 && root2))
-            return false;
-        else
-            return root1->val == root2->val && isSame(root1->left, root2->left) &&
-                   isSame(root1->right, root2->right);
+        else//root2非空
+        {
+            if (!root1)//为空
+                return false;
+            else
+                return root1->val == root2->val && isPreSame(root1->left, root2->left) &&
+                       isPreSame(root1->right, root2->right);
+        }
     }
 };
