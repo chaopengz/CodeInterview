@@ -1,12 +1,12 @@
 #include <iostream>
-#include "VerifySquenceOfBST.cpp"
+#include "FindPath.cpp"
+#include "buildTree.h"
 
 int main()
 {
     Solution solution;
-    int a[] = {1, 4, 3, 6, 9, 5, 8};
-//    int b[] = {7, 8, 9, 10};
-    vector<int> v(a, a + 7);
-    cout << solution.VerifySquenceOfBST(v);
+    BuildTree buildTree;
+    TreeNode *root = buildTree.stringToTree("[1,2,3,4,5,3,6]");
+    solution.FindPath(root, 7);
 }
 
