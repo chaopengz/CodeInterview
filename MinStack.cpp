@@ -7,11 +7,18 @@
 
 class Solution {
 public:
+    Solution()
+    {
+        m[0] = INT32_MAX;
+    }
+
     void push(int value)
     {
         st.push(value);
-        if (value < minNum)
-            minNum = value;
+        if (value >= m[st.size() - 1])
+            m[st.size()] = m[st.size() - 1];
+        else
+            m[st.size()] = value;
     }
 
     void pop()
@@ -26,10 +33,9 @@ public:
 
     int min()
     {
-        return minNum;
+        return m[st.size()];
     }
 
     stack<int> st;
-    int minNum = INT32_MAX;
     unordered_map<int, int> m;
 };
