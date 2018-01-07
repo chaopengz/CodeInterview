@@ -1,16 +1,12 @@
 #include <iostream>
-#include "PrintFromTopToBottom.cpp"
-#include "buildTree.h"
+#include "VerifySquenceOfBST.cpp"
 
 int main()
 {
     Solution solution;
-    BuildTree buildTree;
-    TreeNode *root = buildTree.stringToTree("[1,2,3,4,null,null,5,6,7]");
-    vector<int> ans;
-    ans = solution.PrintFromTopToBottom(root);
-    for (auto i:ans)
-        cout << i << " ";
-
+    int a[] = {1, 4, 3, 6, 9, 5, 8};
+//    int b[] = {7, 8, 9, 10};
+    vector<int> v(a, a + 7);
+    cout << solution.VerifySquenceOfBST(v);
 }
 
