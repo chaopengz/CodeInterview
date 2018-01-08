@@ -1,12 +1,12 @@
 #include <iostream>
-#include "FindPath.cpp"
+#include "TreeDepth.cpp"
 #include "buildTree.h"
 
 int main()
 {
     Solution solution;
     BuildTree buildTree;
-    TreeNode *root = buildTree.stringToTree("[1,2,3,4,5,3,6]");
-    solution.FindPath(root, 7);
+    TreeNode *root = buildTree.stringToTree("[1,2,3]");
+    cout << solution.TreeDepth(root);
 }
 
