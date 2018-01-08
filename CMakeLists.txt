@@ -3,4 +3,4 @@ project(CodeInterview)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(CodeInterview main.cpp head.h Find.cpp replaceSpace.cpp printListFromTailToHead.cpp reConstructBinaryTree.cpp queueByStack.cpp minNumberInRotateArray.cpp Fibonacci.cpp jumpFloor.cpp jumpFloorII.cpp rectCover.cpp Power.cpp reOrderArray.cpp FindKthToTail.cpp ReverseList.cpp Merge.cpp HasSubtree.cpp buildTree.h Mirror.cpp printMatrix.cpp MinStack.cpp IsPopOrder.cpp PrintFromTopToBottom.cpp VerifySquenceOfBST.cpp FindPath.cpp Convert.cpp TreeDepth.cpp)
+add_executable(CodeInterview main.cpp head.h Find.cpp replaceSpace.cpp printListFromTailToHead.cpp reConstructBinaryTree.cpp queueByStack.cpp minNumberInRotateArray.cpp Fibonacci.cpp jumpFloor.cpp jumpFloorII.cpp rectCover.cpp Power.cpp reOrderArray.cpp FindKthToTail.cpp ReverseList.cpp Merge.cpp HasSubtree.cpp buildTree.h Mirror.cpp printMatrix.cpp MinStack.cpp IsPopOrder.cpp PrintFromTopToBottom.cpp VerifySquenceOfBST.cpp FindPath.cpp Convert.cpp TreeDepth.cpp Sum_Solution.cpp deleteDuplication.cpp)
