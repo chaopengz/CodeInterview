@@ -8,6 +8,8 @@ class Solution {
 public:
     bool VerifySquenceOfBST(vector<int> sequence)
     {
+        if (!sequence.size())
+            return true;
         for (auto i:sequence)
             nums.push_back(i);
         int len = sequence.size();

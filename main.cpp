@@ -1,12 +1,12 @@
 #include <iostream>
-#include "TreeDepth.cpp"
+#include "VerifySquenceOfBST.cpp"
 #include "buildTree.h"
 
 int main()
 {
     Solution solution;
-    BuildTree buildTree;
-    TreeNode *root = buildTree.stringToTree("[1,2,3]");
-    cout << solution.TreeDepth(root);
+    int a[] = {3, 8, 9};
+    vector<int> v(a, a + 3);
+    cout << solution.VerifySquenceOfBST(v);
 }
 
