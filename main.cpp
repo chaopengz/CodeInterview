@@ -1,12 +1,10 @@
 #include <iostream>
-#include "FindGreatestSumOfSubArray.cpp"
+#include "NumberOf1Between1AndN_Solution.cpp"
 //#include "buildTree.h"
 
 int main()
 {
     Solution solution;
-    int a[] = {6, -3, -2, 7, -15, 1, 2, 2};
-    vector<int> v(a, a + 2);
-    cout << solution.FindGreatestSumOfSubArray(v);
+    cout << solution.NumberOf1Between1AndN_Solution(10);
 }
 
