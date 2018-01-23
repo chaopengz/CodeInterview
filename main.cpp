@@ -1,12 +1,21 @@
 #include <iostream>
-#include "VerifySquenceOfBST.cpp"
+#include "Convert.cpp"
 #include "buildTree.h"
 
 int main()
 {
     Solution solution;
-    int a[] = {3, 8, 9};
-    vector<int> v(a, a + 3);
-    cout << solution.VerifySquenceOfBST(v);
+    BuildTree buildTree;
+    TreeNode *root = buildTree.stringToTree("[5,3,8,1,4,6,9]");
+    TreeNode *head = solution.Convert(root);
+    while (head->right)
+    {
+        head = head->right;
+    }
+    while (head)
+    {
+        cout << head->val << " ";
+        head = head->left;
+    }
 }
 
