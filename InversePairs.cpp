@@ -23,8 +23,7 @@ public:
 
     int InversePairs(vector<int> data)
     {
-        int mod = 1000000007;
-        return mergeSort(data, 0, data.size() - 1) % mod;
+        return mergeSort(data, 0, data.size() - 1);
     }
 
     int mergeSort(vector<int> &data, int start, int end)
@@ -33,9 +32,9 @@ public:
         int mid = (start + end) / 2;
         if (end > start)
         {
-            inv += mergeSort(data, start, mid);
-            inv += mergeSort(data, mid + 1, end);
-            inv += merge(data, start, mid, end);
+            inv = (inv % mod + mergeSort(data, start, mid) % mod) % mod;
+            inv = (inv % mod + mergeSort(data, mid + 1, end) % mod) % mod;
+            inv = (inv % mod + merge(data, start, mid, end) % mod) % mod;
         }
         return inv;
     }
@@ -56,7 +55,7 @@ public:
                 temp.push_back(data[i++]);
             else//data[i] > data[j]
             {
-                inv += (mid - i + 1);
+                inv = (inv % mod + (mid - i + 1) % mod) % mod;
                 temp.push_back(data[j++]);
             }
             count--;
@@ -67,4 +66,6 @@ public:
         }
         return inv;
     }
+
+    int mod = 1000000007;
 };
