@@ -1,46 +1,38 @@
 //
-// Created by cpz on 2018/1/8.
+// Created by cpz on 2018/1/25.
 //
 #include "head.h"
 
 class Solution {
 public:
-    vector<vector<int>> Print(TreeNode *pRoot)
+    vector<vector<int> > Print(TreeNode *pRoot)
     {
         if (!pRoot)
             return vector<vector<int>>();
-
-        vector<vector<int>> ans;
-        vector<int> v;
         queue<TreeNode *> q;
-        bool flag = true;
         int len;
-        TreeNode *node;
         q.push(pRoot);
+        vector<int> v;
+        vector<vector<int>> ans;
+        TreeNode *node;
         while (!q.empty())
         {
-            v.clear();
             len = q.size();
+            v.clear();
             for (int i = 0; i < len; ++i)
             {
                 node = q.front();
-                v.push_back(node->val);
                 q.pop();
+                v.push_back(node->val);
                 if (node->left)
                     q.push(node->left);
                 if (node->right)
                     q.push(node->right);
             }
-            if (flag)
-                ans.push_back(v);
-            else
-            {
-                reverse(v.begin(), v.end());
-                ans.push_back(v);
-            }
-            flag = !flag;
+            ans.push_back(v);
         }
         return ans;
+
     }
 
 };
