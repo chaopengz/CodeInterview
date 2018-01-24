@@ -7,22 +7,24 @@ class Solution {
 public:
     TreeNode *KthNode(TreeNode *pRoot, int k)
     {
-        if (!pRoot)
+        if (!pRoot || k <= 0)
             return nullptr;
-        midTravel(pRoot, k);
-        return v.back();
+        vector<TreeNode *> v;
+        midTravel(pRoot, v);
+        int len = v.size();
+        if (k <= len)
+            return v[k - 1];
+        else
+            return nullptr;
     }
 
-    void midTravel(TreeNode *root, int k)
+    void midTravel(TreeNode *root, vector<TreeNode *> &v)
     {
         if (!root)
             return;
-        midTravel(root->left, k);
-        if (v.size() < k)
-            v.push_back(root);
-        else
-            return;
-        midTravel(root->right, k);
+        midTravel(root->left, v);
+        v.push_back(root);
+        midTravel(root->right, v);
     }
-    vector<TreeNode *> v;
+
 };
