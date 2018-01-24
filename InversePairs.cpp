@@ -23,42 +23,48 @@ public:
 
     int InversePairs(vector<int> data)
     {
-        int len = data.size();
-        quick_sort(data, 0, len - 1);
-        for (auto i:data)
-        {
-            cout << i << " ";
-        }
-        cout << endl;
-        cout << count << endl;
+        int mod = 1000000007;
+        return mergeSort(data, 0, data.size() - 1) % mod;
     }
 
-    void quick_sort(vector<int> &v, int left, int right)
+    int mergeSort(vector<int> &data, int start, int end)
     {
-        if (left >= right)
-            return;
-        int temp = v[left], t;
-        int i = left, j = right;
-        while (i < j)
+        int inv = 0;
+        int mid = (start + end) / 2;
+        if (end > start)
         {
-            while (i < j && v[j] >= temp)
-                j--;
-            while (i < j && v[i] <= temp)
-                i++;
-            if (i < j)
-            {
-                t = v[i];
-                v[i] = v[j];
-                v[j] = t;
-                count++;
-            }
+            inv += mergeSort(data, start, mid);
+            inv += mergeSort(data, mid + 1, end);
+            inv += merge(data, start, mid, end);
         }
-        //i==j
-        v[left] = v[i];//将相遇位置的值赋给基准值位置
-        v[i] = temp;//基准值归位
-        quick_sort(v, left, i - 1);
-        quick_sort(v, i + 1, right);
+        return inv;
     }
 
-    int count = 0;
+    int merge(vector<int> &data, int start, int mid, int end)
+    {
+        int inv = 0;
+        vector<int> temp;
+        int i = start, j = mid + 1;
+        int count = end - start + 1;
+        while (count)
+        {
+            if (i > mid)
+                temp.push_back(data[j++]);
+            else if (j > end)
+                temp.push_back(data[i++]);
+            else if (data[i] < data[j])
+                temp.push_back(data[i++]);
+            else//data[i] > data[j]
+            {
+                inv += (mid - i + 1);
+                temp.push_back(data[j++]);
+            }
+            count--;
+        }
+        for (int k = start; k <= end; ++k)
+        {
+            data[k] = temp[k - start];
+        }
+        return inv;
+    }
 };
