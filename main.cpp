@@ -1,5 +1,5 @@
 #include <iostream>
-#include "deleteDuplication.cpp"
+#include "maxInWindows.cpp"
 
 #include "buildTree.h"
 
@@ -7,18 +7,9 @@
 int main()
 {
     Solution solution;
-    ListNode *head = new ListNode(1);
-    ListNode *node1 = new ListNode(1);
-    ListNode *node2 = new ListNode(1);
-    ListNode *node3 = new ListNode(2);
-
-//    head->next = node1;
-//    node1->next = node2;
-//    node2->next = node3;
-
-    ListNode *ansNode = solution.deleteDuplication(head);
-    if (ansNode)
-        cout << ansNode->val;
+    int a[] = {2, 3, 4, 2, 6, 2, 5, 1};
+    vector<int> v(a,a+8);
+    solution.maxInWindows(v,3);
 }
 
 
