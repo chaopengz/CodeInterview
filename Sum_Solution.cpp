@@ -10,7 +10,7 @@ public:
         int sum = 0;
         for (int i = 1; i <= n; ++i)
         {
-            sum+=n;
+            sum+=i;
         }
         return sum;
     }
