@@ -1,5 +1,5 @@
 #include <iostream>
-#include "LastRemaining_Solution.cpp"
+#include "StrToInt.cpp"
 
 #include "buildTree.h"
 
@@ -7,7 +7,8 @@
 int main()
 {
     Solution solution;
-    cout << solution.LastRemaining_Solution(5, 3);
+    string str = "-0";
+    cout << solution.StrToInt(str);
 }
 
 
