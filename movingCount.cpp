@@ -8,7 +8,7 @@ public:
     int movingCount(int threshold, int rows, int cols)
     {
         vector<vector<bool>> visit(rows, vector<bool>(cols, false));
-        int m = rows, n = cols;
+        m = rows, n = cols;
 
         travel(0, 0, visit, threshold);
 
@@ -29,10 +29,14 @@ public:
         if (isFit(i, j, threshold))
         {
             v[i][j] = true;
-            travel(i - 1, j, v, threshold);
-            travel(i + 1, j, v, threshold);
-            travel(i, j - 1, v, threshold);
-            travel(i, j + 1, v, threshold);
+            if (i > 0 && !v[i - 1][j])
+                travel(i - 1, j, v, threshold);
+            if (i < m - 1 && !v[i + 1][j])
+                travel(i + 1, j, v, threshold);
+            if (j > 0 && !v[i][j - 1])
+                travel(i, j - 1, v, threshold);
+            if (j < n - 1 && !v[i][j + 1])
+                travel(i, j + 1, v, threshold);
         } else
         {
             return;
@@ -55,6 +59,7 @@ public:
         }
         return sum <= threshold && inRec;
     }
+
     int m;
     int n;
 };
